@@ -3,8 +3,6 @@ import * as bodyParser from "body-parser";
 import * as helmet from "helmet";
 import * as cors from "cors";
 import { OK } from "http-status-codes";
-//import {nums_train} from "./models/nums_training.csv";
-//import {plants_train} from "./models/plants_training";
 import * as fs from "fs";
 
 class App {
