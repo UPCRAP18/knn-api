@@ -1,0 +1,36 @@
+{
+  "name": "knn-api",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start-dev": "nodemon --config nodemon.json node ./server/index.ts dev",
+    "build": "tsc",
+    "start": "ts-node server/index.ts"
+  },
+  "cacheDirectories": [
+    "node_modules"
+  ],
+  "author": "Rodrigo Alvarez",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^3.19.0",
+    "http-status-codes": "^1.4.0",
+    "morgan": "^1.10.0",
+    "tslib": "^1.11.1"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.17.0",
+    "@types/cors": "^2.8.5",
+    "@types/express": "^4.17.0",
+    "@types/helmet": "0.0.43",
+    "typescript": "^3.5.3",
+    "nodemon": "^1.19.1",
+    "ts-node-dev": "^1.0.0-pre.40"
+  },
+  "engines": {
+    "node": "10.19.0"
+  }
+}
