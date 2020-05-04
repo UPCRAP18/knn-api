@@ -3,8 +3,9 @@ import * as bodyParser from "body-parser";
 import * as helmet from "helmet";
 import * as cors from "cors";
 import { OK } from "http-status-codes";
-import {nums_train} from "./models/nums_training";
-import {plants_train} from "./models/plants_training";
+//import {nums_train} from "./models/nums_training.csv";
+//import {plants_train} from "./models/plants_training";
+import * as fs from "fs";
 
 class App {
     public app: express.Application;
@@ -21,10 +22,17 @@ class App {
         this.app.use(helmet());
         
         this.app.use("/api/numbers", (req: express.Request, res: express.Response) => {
-            return res.status(OK).json(nums_train);
+            var data = fs.readFileSync("./models/nums_training.csv", "UTF8");
+            return res.status(OK).json({
+                model: data
+            })
         });
+
         this.app.use("/api/plants", (req: express.Request, res: express.Response) => {
-            return res.status(OK).json(plants_train);
+            var data = fs.readFileSync("./models/plants_training.csv", "UTF8");
+            return res.status(OK).json({
+                model: data
+            })
         });
     }
 
