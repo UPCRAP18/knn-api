@@ -20,14 +20,14 @@ class App {
         this.app.use(helmet());
         
         this.app.use("/api/numbers", (req: express.Request, res: express.Response) => {
-            var data = fs.readFileSync("./models/nums_training.csv", "UTF8");
+            var data = fs.readFileSync(__dirname.concat("/models/nums_training.csv"), "UTF8");
             return res.status(OK).json({
                 model: data
             })
         });
 
         this.app.use("/api/plants", (req: express.Request, res: express.Response) => {
-            var data = fs.readFileSync("./models/plants_training.csv", "UTF8");
+            var data = fs.readFileSync(__dirname.concat("/models/plants_training.csv"), "UTF8");
             return res.status(OK).json({
                 model: data
             })
