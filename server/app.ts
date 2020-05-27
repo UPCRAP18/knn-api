@@ -18,6 +18,12 @@ class App {
         this.app.use(bodyParser.urlencoded({extended:true}));
         this.app.use(cors());
         this.app.use(helmet());
+
+        this.app.use("/", (req: express.Request, res: express.Response) => {
+            return res.status(OK).json({
+                data: "Connected"
+            });
+        });
         
         this.app.use("/api/numbers", (req: express.Request, res: express.Response) => {
             var data = fs.readFileSync(__dirname.concat("/models/nums_training.csv"), "UTF8");
